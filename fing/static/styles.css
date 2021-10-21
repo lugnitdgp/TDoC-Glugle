@@ -1,0 +1,19 @@
+@import "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css";
+
+a:link, a:visited{
+    color: white;
+}
+a:active{
+    color:yellow;
+}
+
+html, body {
+    height: auto;
+	/* border: 1px solid transparent; */
+	padding-bottom: 20px;
+
+
+}
+.full-height{
+    height: 100%;
+}
