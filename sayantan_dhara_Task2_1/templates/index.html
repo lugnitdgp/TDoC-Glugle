@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Addition Page
+{% endblock title %}
+
+{% block content %}
+    
+    <div class="card">
+        <form action="/result" method="get">
+        
+            <input type="text" name="num1" id="num1" placeholder="Enter first number"><br>
+            <input type="text" name="num2" id="num2" placeholder="Enter second number"><br>
+            <input type="submit" class="submit_btn" value="Add">
+        </form>
+    </div>
+
+{% endblock content %}
