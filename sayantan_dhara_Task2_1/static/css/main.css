@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+.card {
+  margin-left: 5vw;
+  background-color: aliceblue;
+  width: 90vw;
+  height: 40vh;
+  border-radius: 2rem;
+  padding: 0.5rem 0rem;
+  line-height: 80px;
+}
+
+.card input {
+  margin: 0;
+  font-family: monospace;
+  font-size: 1.5rem;
+  height: 40px;
+  width: 40%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  /* background-color: aqua; */
+  border-radius: 100px;
+}
+
+.card input:hover {
+  outline: none;
+}
+
+.card .submit_btn {
+  width: 6%;
+  font-family: monospace;
+  background-color: #3584db;
+  color: aliceblue;
+  border-color: transparent;
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  .card input {
+    height: 20px;
+    font-size: 0.7rem;
+    width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .card .submit_btn{
+    width: 60px;
+  }
+}
+
+@media screen and (orientation:landscape){
+    .card{
+        line-height: 40px;
+    }
+}
