@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <form action='/' method="POST">
+        First(Number)
+        <input type="text" name="number1"><br>
+        Second(Number)
+        <input type="text" name="number2"><br>
+        <button type="submit" value="submit">Calculate Sum</button>
+        </form>
+        {%if sum%}
+        <p>THE SUM IS {{sum}}</p>
+        {%endif%}
+    </body>
+</html> 
