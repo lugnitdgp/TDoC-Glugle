@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Basic Flask</title>
+{% endblock %}
+
+{% block body %}
+<div class="center">
+    <h1>Addition</h1>
+    <form action="/sum" method="POST">
+        <label>Number 1</label>
+        <input type="text" name="num1"><br><br>
+        <label>Number 2</label>
+        <input type="text" name="num2"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock %}

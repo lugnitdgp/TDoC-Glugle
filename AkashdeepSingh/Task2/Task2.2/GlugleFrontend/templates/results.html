@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Glugle</title>
+{% endblock %}
+
+{% block body %} 
+<div class="results">
+    <h1 style="text-align: center">Results</h1>
+    <form action="/results" method="POST" class="form-inline">
+        <input type="text" class="form-control results_form" name="search_query" placeholder="Enter your query">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <h3>You searched for <strong><em>{{ query }}</em></strong></h2>
+    <h4>Results...</h5>
+    <p>Sample Text 1</p>
+    <p>Sample Text 2</p>
+    <p>Sample Text 3</p>
+    <p>Sample Text 4</p>
+    <p>Sample Text 5</p>
+</div>
+{% endblock %}
