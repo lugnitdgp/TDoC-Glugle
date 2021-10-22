@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+img{
+    margin: auto;
+    width: 50%;
+    display: block;
+}
+
+form{
+    margin: 2%;
+}
+
+form.form-inline{
+    margin: 0;
+}
+
+input[type=text].starting_form{
+      padding: 2%;
+      width: 100%;
+  }
+
+input[type=text].results_form{
+    padding: 1%;
+    width: 80%;
+}
+
