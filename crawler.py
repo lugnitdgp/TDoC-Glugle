@@ -92,7 +92,7 @@ class Crawler:
         self.client.close()
 
 
-spider = Crawler()
-spider.start_crawl(
+test = Crawler()
+test.start_crawl(
     sys.argv[1], int(sys.argv[2])
 )
