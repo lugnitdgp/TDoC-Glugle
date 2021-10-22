@@ -1,0 +1,99 @@
+*{
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+
+body{
+    background-color:#F7D488;
+}
+.logo{
+    font-size: 5rem;
+    color: #B45F2D;
+}
+.search_container{
+    width: 80vw;
+    margin-left: 10vw;
+    height: 30vh;
+}
+form{
+    box-sizing: border-box;
+    gap: 0;
+    text-align: center;
+}
+#search_box{
+    border-radius: 0.2rem;
+    border-width: 0;
+    width: 60vw;
+    height: 2.5rem;
+    background-color: #657ED4;
+    margin: 0;
+    padding: 0;
+    padding-left: 1.5rem;
+    padding-right: 0.4rem;
+    text-align: left;
+    color: white;
+    font-size: large;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#search_box::placeholder{
+    color: white;
+    opacity: 1;
+    font-size: large;
+    text-align: left;
+    
+}
+
+.search_btn i{
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    color:white;
+}
+
+.search_btn {
+    box-sizing: border-box;
+    width: 2rem;
+    height: 2.5rem;
+    padding: 0;
+    padding-right: 0.4rem;
+    margin: 0;
+    background-color: #657ED4;
+    border-width: 0;
+
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    float:inline-end ;
+    cursor: pointer;
+    
+}
+
+#search_box:focus{
+    outline: none;
+
+}
+
+.search_input{
+    padding: 0;
+    margin: 0;
+    display:flex;
+    justify-content: center;
+}
+
+@media screen and (max-width:800px) {
+    .logo{
+        font-size: xx-large;
+    }
+}
+
+@media screen and (max-width:600px) {
+    #search_box{
+        font-size: small;
+    }
+    #search_box::placeholder{
+        font-size: small;
+    }
+    .search_btn i{
+        font-size: 1rem;
+    }
+}
