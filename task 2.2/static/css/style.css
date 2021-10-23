@@ -1,0 +1,63 @@
+html  {
+    background-color: rgba(107, 207, 152, 0.842);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+.Icon {
+    padding: auto;
+    display: block;
+    height: 15rem;
+    margin: auto;
+    margin-top: 6rem;
+}
+
+.Icon:hover {
+    filter: invert(100%);
+}
+main {
+    display: block;
+    margin: auto;
+}
+input {
+    display: block;
+    margin: auto;
+    margin-block: 6px;
+    border-color:inherit;
+}
+
+.Searchbox {
+    /* background-color: rgba(250, 250, 250, 0.651); */
+    width: 23rem;
+    font-size: 16px;
+    letter-spacing: 0.1rem;
+    padding: 0.35rem 0.5rem;
+    border-color: white;
+    border-radius: 17px;
+    box-shadow: blue, 12px;
+}
+
+.button {
+    background-color:rgb(234, 255, 196);
+    font-size: 16px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0.25rem, 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 0.7rem;
+}
+.button:hover {
+    background-color: #3a5c2f75;
+    color: white;
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    display: block;
+    margin: auto;
+    /* width: 2rem; */
+}
+#icon {
+    height: 2rem;
+}
