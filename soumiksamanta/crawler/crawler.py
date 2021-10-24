@@ -1,4 +1,5 @@
 import re
+import sys
 import pymongo
 import requests
 import urllib.parse
@@ -76,7 +77,7 @@ class Crawler():
 
         # create absolute URLs
         url = urllib.parse.urljoin(url, "")
-        print("Crawling", url)
+        print(f"Crawling {url} at depth {depth}")
         title = ""
         desc = ""
         result = None
@@ -95,8 +96,8 @@ class Crawler():
                     title = ""
 
                 try:
-                    desc = soup.find('p')
-                    desc = desc.text
+                    desc_list = soup.find_all('p')
+                    desc = " ".join(item.text.replace('\n', '') for item in desc_list)
                 except:
                     desc = ""
                 
@@ -115,8 +116,19 @@ class Crawler():
 
                 try:
                     self.db.query_data.insert_one(query)
+                    self.db.query_data.create_index(
+                        [
+                            ('url', pymongo.TEXT),  
+                            ('title', pymongo.TEXT),
+                            ('description', pymongo.TEXT)
+                        ],
+                        name="query_data_index",
+                        default_language="english"
+                    )
                 except Exception as e:
                     print("ERROR inserting data : ", e)
+                    exc_type, exc_val, tb_obj = sys.exc_info()
+                    print(exc_type, "at", tb_obj.tb_lineno)
 
                 # extract all links in page and continue crawling, only if max depth allowed has not reached 0
                 if depth != 0:
@@ -136,3 +148,7 @@ class Crawler():
 
         
         self.client.close()
+
+
+crl = Crawler()
+crl.start_crawl("https://www.wikipedia.org", 2)
