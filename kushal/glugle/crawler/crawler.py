@@ -1,79 +1,99 @@
 import pymongo
 import urllib.parse
 import requests
+import pymongo
 from bs4 import BeautifulSoup
+import sys
+from html.parser import HTMLParser
 
 
 class Crawler:
-    client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
-    db = client['glugle']
-    my_collections = db['info']
-    import collections
-    disallowed_links = []
+    client = pymongo.MongoClient('mongodb://127.0.0.1:27017/')
+    db = client.glugledb
+    collection = db.info
+
+    disallowed_link = []
 
     def start_crawl(self, url, depth):
-        complete_url = urllib.parse.urljoin
-        (url, '/robots.txt')
+        robots = urllib.parse.urljoin(url, '/robots.txt')
 
         try:
-            robots = requests.get(complete_url)
-            soup = BeautifulSoup(robots.text, 'html.parser')
-            try:
-                our_robots = soup.find('p')
-                for e in our_robots:
-                    if e[0] == '/':
-                        c_url = urllib.parse.join(
-                            url, 'e')
-                        disallowed_links.append(c_url)
+            robot = requests.get(robots)
+        except:
+            print("Robots not found here!")
+            crawl(self, url, depth)
 
-            except Exception as e:
-                pass
-        except Exception as e:
-            pass
+        soup = BeautifulSoup(robot.text, 'html.parser')
+        content = soup.find_all('p')
 
-    def crawl(self, url, depth):
-        complete_url = urllib.parse.urljoin(
-            url, '/robots.txt')
+        for word in content:
+            if word[0] == '/':
+                self.disallowed_link.append(urllib.parse.urljoin(url, word))
+        print("Robots found and appended in dissallowed_links...")
+
+        crawl(self, url, depth, self.disallowed_link)
+
+
+def crawl(self, url, depth, *disallowed_link):
+    try:
+        print(f"Crawling url {url} at depth: {depth}")
+        response = requests.get(url)
+    except:
+        print(f"Failed to perform HTTP GET request on {url}")
+        return
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    try:
+        title = soup.find('title').text
+        desc = ''
+
+        for tag in soup.findAll():
+            if tag.name == 'p':
+                desc = desc + tag.text.strip().replace('\n', '')
+
+    except:
+        print("Failed to retrieve title and desc...")
+        return
+
+    query = {
+        'url': url,
+        'title': title,
+        'description': desc,
+    }
+
+    results = self.db.results
+    results.insert_one(query)
+    results.create_index(
+        [
+            ('url', pymongo.TEXT),
+            ('title', pymongo.TEXT),
+            ('desc', pymongo.TEXT)
+        ],
+        name='results',
+        default_language='english'
+    )
+
+    if depth == 0:
+        return
+
+    links = soup.findAll('a')
+
+    for link in links:
         try:
-            robots = requests.get(complete_url)
-        except Exception as e:
-            pass
-        try:
-            soup = BeautifulSoup(robots.content, 'html.parser')
-            title = soup.find('title')
-            description = soup.find('p')
-            href = soup.find('a')
-            query = {
-
-                "url": complete_url,
-
-                "title": title,
-
-                "description": description
-            }
-
-            self.my_collections.insert_one(query)
-            self.my_collections.create_index([
-                ('url', pymongo.TEXT),
-                ('title', pymongo.TEXT),
-                ('description', pymongo.TEXT),
-            ], name='search_results', default_language='english')
-
-            if depth == 0:
-                return
-            else:
-                links = []
-                links.append(href)
-                for link in links:
-                    if link in self.disallowed_links:
-                        pass
-                    else:
-                        self.crawl(link, depth-1)
-            self.client.close()
-        except Exception as e:
+            if link['href'] not in disallowed_link:
+                if 'http' in link['href']:
+                    crawl(self, link['href'], depth-1, disallowed_link)
+                else:
+                    link['href'] = urllib.parse.urljoin(url, link['href'])
+                    crawl(self, link['href'], depth-1, disallowed_link)
+        except KeyError:
+            print("No links retrieved from the page")
             pass
 
+    self.client.close()
 
-obj = Crawler()
-obj.start_crawl('https://www.rottentomatoes.com/', 3)
-obj.crawl('https://www.rottentomatoes.com/', 3)
+
+spider = Crawler()
+spider.start_crawl(
+    sys.argv[1], int(sys.argv[2])
+)
