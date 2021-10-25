@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Glugle</title>
+{% endblock %}
+
+{% block body %}
+<div class="results">
+    
+
+    <div class="container">
+        <h1 style="text-align: center">Results</h1>
+    <form action="/results" method="POST" class="results_page_form">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <a href="/"><i class="material-icons" style="font-size:36px">home</i></a>
+            </div>
+            <div class="col-10">
+              <input type="text" name="search_query" class="form-control results_page_form" placeholder="Enter your query">
+            </div>
+            <div class="col-1">
+                <input type="submit" class="btn btn-primary" value="Search">
+            </div>
+        </div>
+    </form>
+
+    
+    <h4 style="margin-top: 16px;">Search results for <strong><em>{{query['query']}}</em></strong></h4>
+    <h7><em>{{query['total_results']}} results in total...</em></h7>
+        <div class="links">
+            {% for user in users %}
+            <a href="{{user['url']}}" class="link" style="color:grey">{{user['url']}}</a><br>
+            <h5><a href="{{user['url']}}">{{user['title']}}</a></h5>
+            <p>{{user['description'][:240]}}...</p>
+            {% endfor %}
+        </div>     
+        {{ pagination.links }}
+    </div>
+    
+</div>
+{% endblock %}
