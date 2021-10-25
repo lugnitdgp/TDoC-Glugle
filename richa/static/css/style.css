@@ -1,0 +1,46 @@
+body {
+   
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+.nav-link active svg{
+    size: 20px;
+}
+ .theme{
+     border-radius: 20px;
+     background-color: transparent;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+ }
+  
+  
+ .take_query{
+    border-radius: 15px;
+    outline:none;
+    border: 3px solid rgb(78, 94, 238);width: 500px;
+}
+
+.button_submit{
+
+    background-color: rgb(78, 94, 238);
+    border-radius: 15px;
+    border:none;
+    outline: none !important;
+    margin-top:20px; color: white;
+    font-weight: bold;
+    padding: 8px;
+    transition: 0.3s all ease-in-out;
+}
+
+.button_submit:hover{
+    transition: 0.3s all ease-in-out;
+    background-color: white;
+    color: rgb(78, 94, 238);
+}
