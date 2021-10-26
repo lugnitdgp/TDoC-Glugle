@@ -1,0 +1,55 @@
+{% extends 'homepage.html' %}
+
+{% block result %}
+
+<div class="container">
+    <center>
+        <h1 class="lab">GLUGLE</h1>
+        <div class="searchBox">
+            <form action="/search_results">
+
+
+                <input type="text" class="search" placeholder="Search Here" name="gold">
+                <input type="submit" style="padding:10px;margin-top:20px; background:white;
+            border: none;
+            outline: none;
+            padding: 8px 14px;
+            color:rgb(32, 22, 117);
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 15px;">
+            </form>
+
+
+        </div>
+
+    </center>
+
+    <!-- <div class="container mx-5 mt-5">
+        <p style="color: teal;"><b>Search result for '{{required}}'</b></p>
+    </div> -->
+
+    {% if required %}
+    {% for link in required %}
+    <div class="container mt-3" style="width:80%">
+
+        <div class="col">
+            <strong><a style="color:white" href="{{ link.url }}" target="_ blank">{{ link.title }}</a></strong>
+        </div>
+
+        <div class="col">
+            <a style="color:white;width:50%" href="{{ link.url }}" target="_blank">{{ link.url }}</a>
+            <p style="color:red">{{ link.description[:300] }}...</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <center><b style="color:azure">No results found</b></center>
+    {% endif %}
+
+    <div class="col mb-5 mt-2 text-center">
+        {{pagination.links}}
+    </div>
+</div>
+
+{% endblock %}
