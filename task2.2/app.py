@@ -38,14 +38,14 @@ def fun():
     total = search_result.count()
     # return render_template('searches.html', required=required)
 
-    pagination = Pagination(page=page, per_page=per_page,
+    pagination_sm = Pagination(page=page, per_page=per_page,
                             total=total, css_framework='bootstrap4')
 
     return render_template('searches.html',
                            required=required[offset:offset+per_page],
                            page=page,
                            per_page=per_page,
-                           pagination=pagination,
+                           pagination_sm=pagination_sm,
                            search_string=search_string
                            )
 
