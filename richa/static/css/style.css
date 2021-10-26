@@ -13,23 +13,87 @@ body {
 .nav-link active svg{
     size: 20px;
 }
- .theme{
-     border-radius: 20px;
-     background-color: transparent;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --navHeight: 30px;
+  }
+  
+ 
+  
+  .switch {
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .switch div {
+    position: relative;
+    display: block;
+    background: #eee;
+    width: 69px;
+    border-radius: 50px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  .fa-adjust {
+    transform: rotate(180deg);
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    background-color: rgb(166, 174, 221);
+    transition: 0.4s;
+    border-radius: 34px;
+    height: 15px;
+    width: 20px;
+    display: inline-block;
+    position: relative;
+  }
+  
+  input:checked + .slider {
+    transform: translateX(16px);
+  }
+  
+  nav {
+    background: #d2cca1;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    font-size: 1.1rem;
+    position: relative;
+  }
+  
+  nav ul {
+    list-style-type: none;
+  }
+  
 
- }
+  
+  nav ul li {
+    /* padding: 12px 10px; */
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+ 
+  
+
   
   
  .take_query{
     border-radius: 15px;
     outline:none;
-    border: 3px solid rgb(78, 94, 238);width: 500px;
+    border: 3px solid rgb(53, 84, 224);width: 500px;
 }
 
 .button_submit{
 
-    background-color: rgb(78, 94, 238);
+    background-color: rgb(53, 84, 224);
     border-radius: 15px;
     border:none;
     outline: none !important;
@@ -42,5 +106,5 @@ body {
 .button_submit:hover{
     transition: 0.3s all ease-in-out;
     background-color: white;
-    color: rgb(78, 94, 238);
+    color: rgb(53, 84, 224);
 }

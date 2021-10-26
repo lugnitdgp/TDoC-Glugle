@@ -6,23 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glugle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/regular.min.js">
+  
     <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
   
 </head>
 <body>
 
     <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
- 
-    <ul class="nav justify-content-end">
-      
-          <a class="nav-link active" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggles" viewBox="0 0 16 16">
-                <path d="M4.5 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm-7-14a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm2.45 0A3.49 3.49 0 0 1 8 3.5 3.49 3.49 0 0 1 6.95 6h4.55a2.5 2.5 0 0 0 0-5H6.95zM4.5 0h7a3.5 3.5 0 1 1 0 7h-7a3.5 3.5 0 1 1 0-7z"/>
-              </svg>
-          <button  onclick="myFunction()" class="theme">Mode</button>
-          </a>
-    
+<nav class="navbar navbar-light bg-light" style="height:4vh;">
+    <ul>
+        <li>
+          <label   class="switch">
+            <i class="fa fa-adjust"></i>
+            <div>
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </div>
+          </label>
+        </li>
        
       </ul>
       
@@ -46,9 +50,10 @@
 
 </body>
 <script>
-    function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-    }
+   const themeSwitch = document.querySelector('input');
+
+themeSwitch.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+});
 </script>
 </html>
