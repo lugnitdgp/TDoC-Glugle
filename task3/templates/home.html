@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<!-- WORKING STARTS HERE -->
+
+<div class="work container" style="margin-top: 250px">
+    <center>
+        <h2 style="font-size: 72px;">Flearch</h2>
+        <form action="/search_results">
+            <input class="take_query_home" type="text" placeholder="  type what you want to seacrh for" name="search"><br/>
+            <input class="button_submit_home" type="submit" value="search">
+        </form>
+        <br><br>
+        <h3 class="text-muted">Flearch the way we search</h3>
+    </center>
+</div>
+
+{% endblock %}
