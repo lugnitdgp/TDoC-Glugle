@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="flex-center vp-size">
+  <div class="search">
+    <span class="text">
+      search: 
+    </span>
+    <span class="cursor">
+      <form name="search" action="/search_results">
+        <input name="search" type="text" class="input-cursor" />
+        <button type="submit" class="btn btn-success">Search</button>
+      </form>
+    </span>
+  </div>
+</div>
+
+{% endblock %}

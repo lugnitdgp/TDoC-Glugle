@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "SF Mono Regular";
+  src: url("../static/fonts/sfmono-regular.ttf");
+}
+@font-face {
+  font-family: "SF Mono Medium";
+  src: url("../static/fonts/sfmono-medium.ttf");
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 4rem;
+  margin: 0 5rem;
+  font-family: "SF Mono Regular";
+  /* background-color: beige; */
+  /* max-width: 102.4rem; */
+}
+
+body::-webkit-scrollbar{
+	display: none;
+}
+
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vp-size {
+  width: 100vw;
+  height: 100vh;
+}
+
+.search {
+  color: grey;
+  /* background-color: aquamarine; */
+  /* width: 800px; */
+}
+
+input {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  font-family: 'SF Mono Medium';
+  font-size: 4rem;
+  /* max-width: max-content; */
+
+}
