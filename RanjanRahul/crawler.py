@@ -22,7 +22,9 @@ class Crawler():
       self.Crawl(url, depth)
 
     soup = BeautifulSoup(response.text, 'lxml')
-    links = soup.find('p').text
+    robots_content = soup.find('p').text
+
+    links = robots_content.split()
 
     for link in links:
       if (link[0] == '/'):
@@ -80,13 +82,13 @@ class Crawler():
 
     for link in links:
       try:
-        if link['href'] not in dissallowedLinks:
+        if link['href'] not in dissallowedLinks[0]:
           if 'http' in link['href']:
-            self.Crawl(link['href'], depth-1, dissallowedLinks)
+            self.Crawl(link['href'], depth-1, dissallowedLinks[0])
 
           else:
             link['href'] = urllib.parse.urljoin(url, link['href'])
-            self.Crawl(link['href'], depth-1, dissallowedLinks)
+            self.Crawl(link['href'], depth-1, dissallowedLinks[0])
 
       except:
         print("No links retieved from page")
