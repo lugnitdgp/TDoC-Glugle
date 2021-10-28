@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="style.css" rel="stylesheet">-->
+	 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Fing </title>
+    
+</head>
+<body>
+  <!-- <a href="./result.html">click </a> -->
+    <header class="text-gray-400 bg-gray-900 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">Thought of Day</span>
+          </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a href="{{ url_for('changewall') }}" class="mr-5 hover:text-white" color="#FFFFFF">changewall</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <a href="report.html" class="mr-5 hover:text-white">Get Full Report</a> &nbsp;&nbsp;&nbsp;&nbsp; -->
+           <!-- <a href="about.html" class="mr-5 hover:text-white">About US</a>-->
+           <!-- <a class="mr-5 hover:text-white">Fourth Link</a> -->
+          </nav>
+        </div>
+    </header>
+
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <form action="/search_results" >
+        <div class= "container px-5 py-24 mx-auto">
+            <div class="full-height">
+                <div class="flex flex-col text-center w-full mb-12">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Fing</h1>
+                  <h2> {{ quote }} </h2>
+                  <p>
+                  </p>
+                  <div></div>
+                  <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Enter Your search Here.</p>
+                </div>
+                <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:px-0 items-end sm:space-x-4 sm:space-y-0 space-y-4">
+                  <div class="relative sm:mb-0 flex-grow w-full">
+                    <textarea name="search" class=" w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 focus:bg-transparent text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" >
+                    </textarea>
+                  </div>
+                </div>
+          <input type="submit"  class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+
+        </div>
+        </div>
+      </form>
+        <br>
+        <br>
+      </section>
+
+    <footer class="text-gray-400 bg-gray-900 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-xl">Fing</span>
+          </a>
+          <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2021 search on fing —
+            <a href="https://google.com" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@fing</a>
+          </p>
+        </div>
+      </footer>
+</body>
+</html>
