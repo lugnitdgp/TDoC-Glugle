@@ -4,7 +4,7 @@ import pymongo
 import requests
 import urllib.parse
 from bs4 import BeautifulSoup
-from pymongo.errors import ConnectionFailure
+
 
 class Crawler():
 
@@ -150,5 +150,5 @@ class Crawler():
         self.client.close()
 
 
-crl = Crawler()
-crl.start_crawl("https://www.wikipedia.org", 2)
+# crl = Crawler()
+# crl.start_crawl("https://www.wikipedia.org", 2)

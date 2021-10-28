@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_paginate import Pagination, get_page_args
+from flask_admin import Admin
 import pymongo
 import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
+from crawler import Crawler
+import threading
 
 
 app = Flask(__name__)
@@ -20,6 +23,24 @@ def home():
         return redirect(url_for("search", query=query))
 
     return render_template("index.html")
+
+
+# set optional bootswatch theme
+app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
+admin = Admin(app, template_mode='bootstrap4')
+# Add administrative views here
+@app.route("/admin", methods=['GET', 'POST'])
+def admin():
+    submitted = False
+    if request.method == 'POST':
+        crawl_url = request.form['crawl_url']
+        print(crawl_url)
+        crawler = Crawler()
+        threading.Thread(target=crawler.start_crawl, args=(crawl_url, 2), daemon=True).start()
+        # crawler.start_crawl(crawl_url)
+        submitted = True
+
+    return render_template("admin/index.html", submitted=submitted)
 
 
 def get_paginated_search_results(search_results, offset=0, per_page=10):
@@ -135,3 +156,6 @@ def search():
                             total=total,
                             pagination=pagination
                             )
+
+if __name__ == "__main__":
+    app.run(debug=True)
