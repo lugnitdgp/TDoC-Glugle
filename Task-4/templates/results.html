@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <!-- <a href="http://127.0.0.1:5000/" ><img id="Icon" src="static/images/icon.png" alt="Search Engine Icon"></a> -->
+        <h2>GLUGLE</h2>
+    </div>
+    <div class="main">
+
+       # <p>Results for your search "{{search_string}}":</p>
+        {% if search_result %}
+    {% for link in search_result %}
+    <div class="container mt-3" style="width:90%">
+
+        <div class="col">
+            <strong><a href="{{ link.url }}">{{ link.title }}</a></strong>
+        </div>
+
+        <div class="col">
+            <a href="{{ link.url }}">{{ link.url }}</a>
+            <p>{{ link.description[:300] }}...</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <b>No results found</b>
+    {% endif %}
+
+    <div class="col mb-5 mt-2 text-center">
+        {{pagination.links}}
+    </div>
+    </div>
+
+    </div>
+</body>
+</html> 
