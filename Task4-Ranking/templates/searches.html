@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block result %}
+
+<div class="work_search">     
+        <form action="/search_results">
+            <a href="/" style="font-weight: bold; font-size: 32px; margin-right: 10px; color: white; text-decoration: none;">Flearch</a>
+            <input class="take_query_search" type="text" 
+            placeholder="type what you want to seacrh for" name="search">
+            <input class="button_submit_search submit-button" type="submit" value="search">
+        </form>
+</div>
+<hr>
+
+    <!-- <h1 style="font-size: 72px; font-weight: bold; margin-top: 150px"></h1> -->
+    <div class="fluid-container search-results-container" style="margin-top: 70px;margin-right: 50px">
+    {% for res in required %}
+    <h5>
+        <a href="{{res['url']}}"class="link" style="color:rgb(216, 216, 216); font-family: 'Comfortaa', cursive;font-weight: bold; font-size: 18px; text-decoration: none;"><i class="fas fa-globe-africa"></i>{{res['title']}}</a><br>
+    </h5>
+    <div class="meta-box" style="max-width: 860px; min-width:360px; display: box;">
+    <a href="{{res['url']}}" style="color:rgb(149, 189, 141); font-size: 18px; text-decoration: underline; margin-right: 50px; word-wrap: break-word;">{{res['url']}}</a>
+     <p style="color:rgb(214,214,214); font-family: 'Roboto', cursive;">{{ res['description'][:200] }}</p>
+    </div>
+    {% endfor %}
+    <div>
+        <br><br>
+    <p class="pagination-sm">{{ pagination.links }} </p>
+    </div>
+</div>
+
+
+{% endblock result %}
