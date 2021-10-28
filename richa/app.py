@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request
-from flask_paginate import Pagination, get_page_args
 import pymongo
+import os
+from flask_paginate import Pagination, get_page_args
+from ranking import Ranking
+from query_processing import QueryProcessing
+import time
+
 
 app = Flask(__name__)
 
@@ -20,8 +25,19 @@ def search_results():
 
     search_string = request.args.get('search')
 
-    query = db.search_results.find(
-        {'$text': {'$search': search_string, '$caseSensitive': False}})
+    processor = QueryProcessing(search_string)
+    keywords = processor.processor()
+
+    query = []
+
+    start = time.time()
+
+    for keyword in keywords:
+        query.extend(db.search_results.find(
+            {'$text': {'$search': keyword, '$caseSensitive': False}}))
+
+    end = time.time()
+    print(f"time to execute: {end-start}")
 
     search_result = []
 
@@ -35,16 +51,22 @@ def search_results():
         if exist == False:
             search_result.append(doc)
 
+    rank = Ranking(search_result, search_string)
+
+    ranked_result = rank.sorted_results()
+
+    client.close()
+
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
 
-    total = len(search_result)
+    total = len(ranked_result)
 
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
 
     return render_template('search.html',
-                           search_result=search_result[offset:offset+per_page],
+                           search_result=ranked_result[offset:offset+per_page],
                            page=page,
                            per_page=per_page,
                            pagination=pagination,
