@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InQuery</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .input_width {
+            width: 700px;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .input_width {
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="flex flex-col items-center pt-60 lg:pt-40 h-screen">
+    <p class="text-8xl font-serif text-indigo-700 mb-8 mb:mb-12 "> InQuery </p>
+    <form action="search/" method="get">
+        <label for="search">
+            <input class="input_width border-2 border-gray-300 rounded-full p-2" type="text" name="search" id="search"
+                   required>
+        </label>
+
+        <div class="flex justify-center py-5">
+            <button class="bg-indigo-500 hover:bg-indigo-600 p-2 px-8 rounded-md" type="submit"> Search</button>
+        </div>
+    </form>
+
+    <p class="md:text-xl font-mono mb-2 text-center"> We Protect Your Privacy, Security and Anonymity :) </p>
+    <a href="https://linktr.ee/akashbachhar" class="text-indigo-500 hover:underline"> Contact Us </a>
+</div>
+
+
+</body>
+</html>
