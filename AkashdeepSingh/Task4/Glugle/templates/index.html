@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Glugle</title>
+{% endblock %}
+
+{% block body %} 
+<div class="center">
+    <img src="{{url_for('static', filename='search_icon.jpg')}}">
+    <form action="/results">
+        <input type="text" class="form-control starting_form" name="search_query" placeholder="Enter your query"><br>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+{% endblock %}

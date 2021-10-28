@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+img{
+    margin: auto;
+    width: 50%;
+    display: block;
+}
+
+form{
+    margin: 2%;
+}
+
+form.results_page_form{
+    margin: 2% 0;
+}
+
+input[type=text].starting_form{
+      padding: 2%;
+      width: 100%;
+}
+
+.links{
+    margin-top: 16px;
+}
+
+
+
