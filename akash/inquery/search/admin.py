@@ -8,7 +8,7 @@ def crawling(modeladmin, request, queryset):
     crawler = Crawler()
     for link in queryset:
         crawler.robot(str(link))
-        crawler.crawl(str(link), 1)
+        crawler.crawl(str(link), 3)
     queryset.update(is_crawled=True)
 
 
