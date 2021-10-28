@@ -15,7 +15,7 @@ def entry_point():
 @app.route('/search_results')
 def search_results():
 
-    client = pymongo.MongoClient('mongodb://127.0.0.1.27017', connect=False)
+    client = pymongo.MongoClient('mongodb://127.0.0.1.27017/', connect=False)
     db = client.crawl_database
     search_string=request.args.get('search_query')
     processor = QueryProcessing(search_string)
@@ -27,7 +27,7 @@ def search_results():
     
 
     for keyword in keywords:
-        query.extend(db.crawl_collection_gfg.find(
+        query.extend(db.crawl_collection.find(
             {'$text': {'$search': keyword, '$caseSensitive': False}}))
 
     end = time.time()
