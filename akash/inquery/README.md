@@ -11,9 +11,9 @@ This is a search engine website with following features.
 - Voice search functionality
 ## Screenshots
 
-<img src="./demo/1.png" alt="UI"/>
-<img src="./demo/2.png" alt="UI"/>
-<img src="./demo/3.png" alt="UI"/>
+<img src="./screenshots/1.png" alt="UI"/>
+<img src="./screenshots/2.png" alt="UI"/>
+<img src="./screenshots/3.png" alt="UI"/>
 
   
 ## Tech Stack
@@ -24,7 +24,8 @@ This is a search engine website with following features.
 
 **Database:** Mongodb
 
-**Other useful libraries:** 
+**Other Necessary Libraries:** 
+
 * Beautiful Soup
 * Pymongo
 * Natural Language Toolkit
