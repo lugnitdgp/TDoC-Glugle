@@ -10,7 +10,7 @@
     <body>
         <header>
             <form action="/results" method="get">
-                <fieldset style="flex: 0;" ><a href="./index.html"><h1> Gluggle</h1></a></fieldset>
+                <fieldset style="flex: 0;" ><a href="/"><h1> Gluggle</h1></a></fieldset>
                 <fieldset>
                     <input type="text" name="query" value="{{q}}" id="id_query">
     
@@ -19,7 +19,7 @@
             </form>
         </header>
         <main>
-            <h4>Results</h4>
+            <h4>Results <b><a href="/history" style="font-weight: 700; text-decoration: underline;">Click to see history</a></b></h4>
             <ul class="results">
                 {% if required %}
                     {% for link in required %}

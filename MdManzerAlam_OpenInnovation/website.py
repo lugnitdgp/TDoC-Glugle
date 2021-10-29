@@ -1,3 +1,4 @@
+from dns.resolver import query
 from flask import Flask,render_template,request,redirect,url_for
 from pymongo import MongoClient
 from flask_paginate import Pagination, get_page_args
@@ -57,6 +58,11 @@ def result():
     database = client.gluggle
     collection = database.queries
     search_string = request.args.get('query')
+    search_history_collection = client.gluggle.search_history
+    search_obj = {
+        'query': search_string,
+    }
+    search_history_collection.insert_one(search_obj)
     optimized_res = search_string_optimizations(search_string)
     print(search_string)
     search_result = []
@@ -106,6 +112,27 @@ def result():
                            pagination=pagination,
                            q=search_string
                            )
+
+@app.route("/history/")
+def history():
+    client = MongoClient('localhost',27017)
+    search_history_collection = client.gluggle.search_history
+    search_results = search_history_collection.find({}).distinct("query")
+    history = []
+    history = search_results
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(history)
+    print(history)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap4')
+    return render_template('history.html',
+                           history=history[offset:offset+per_page],
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
+
 
 if __name__ == "__main__":
     app.run(debug=True)
