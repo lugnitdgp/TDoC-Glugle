@@ -1,7 +1,7 @@
 
 # Open Innovation
 
-Features that can be added to make search engine more efficient:
+Features to make search engine more efficient:
 ## Voice Recognition
 Speech to text conversion. Users can search by voice and their query will be typed in search box and then searched.
 ## Admin Section
