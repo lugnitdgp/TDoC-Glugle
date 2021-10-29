@@ -1,20 +1,12 @@
-# Glugle
 
-## About the project:
+# Open Innovation
 
-Glugle is a fully functional search engine made using Python Programming Language. It displays search results based on a textual search query. MongoDB is used as database in the project. Several python libraries including BeautifulSoup, Pymongo and Requests are utilized and the web application is created using Flask. 
-
-## Project Architecture:
-![architecture](images/architecture-glugle.png)
-
-## Tech stacks used:
-
-- Python programming language
-- MongoDB
-- Flask
-
-## Aim:
-
-- Crawling the web and indexing data in the database.
-- Find results based on a search query.
-- Display search results in a systematic and efficent manner by applying ranking algorithms.
+Features that can be added to make search engine more efficient:
+## Voice Recognition
+Speech to text conversion. Users can search by voice and their query will be typed in search box and then searched.
+## Admin Section
+An admin section from where all the crawled data can be accessed and worked with.
+## Front-End
+Clicking on the logo redirects to the home page of the site. Search bar and buttons are responsive.
+## Ranking
+Page ranking based on user preferences i.e., the number of times a site is accessed by users.
