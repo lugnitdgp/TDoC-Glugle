@@ -110,6 +110,7 @@ def fun():
                            page=page,
                            per_page=per_page,
                            pagination=pagination,
+                           total=total,
                            search_string=search_string
                            )
 
