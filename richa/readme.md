@@ -8,11 +8,11 @@
 
 ![Alt Text](static/results.png)
 
-###Tech Stack used:
+### Tech Stack used:
 > Python<br>
 > Mondodb<br>
 > Flask
 
-###Future Aspects
+### Future Aspects
 
 > It can be improved furthur by adding voice based searches and user log-in. 
