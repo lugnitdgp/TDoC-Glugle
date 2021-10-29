@@ -3,7 +3,10 @@
 ## Open Innovation
 
 Added search history functionality and have connected it with a page that shows search history.
-
+Results page demo
+![ results demo gif ](results-final.gif)
+Search history Demo
+![ search history demo ](search-history-final.gif)
 ## About the project:
 
 Glugle is a fully functional search engine made using Python Programming Language. It displays search results based on a textual search query. MongoDB is used as database in the project. Several python libraries including BeautifulSoup, Pymongo and Requests are utilized and the web application is created using Flask. 

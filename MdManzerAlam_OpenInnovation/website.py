@@ -11,7 +11,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
 import os
 import string
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 # app.debug = True
 
 @app.route("/")
