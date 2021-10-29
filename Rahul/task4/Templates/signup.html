@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+    <div id="signuptorobly" class="content">
+        <h2 class="content-head is-center">SignUp</h2>
+
+        <div class="pure-g">
+            <div class="l-box-lrg pure-u-1 pure-u-med-2-5">
+                <form class="pure-form pure-form-stacked" action="/create_new_user" method="POST" accept-charset="utf-8">
+                    <fieldset>
+
+                        <label for="email">Your Name</label>
+                        <input id="name" name="name" type="text" required="true" placeholder="Your Name"><br>
+
+
+                        <label for="email">Your Email</label>
+                        <input id="email" name="email" type="email" required="true" placeholder="Your Email"><br>
+
+                        <label for="password">Your Password</label>
+                        <input id="password" name="password" type="password" required="true" placeholder="Your Password"><br>
+
+                        <button type="submit" class="pure-button">Sign Up</button>
+                    </fieldset>
+                </form>
+            </div>
+            <style>
+                body {
+                    background-color: aquamarine;
+                }
+                form{
+                    background-color: azure;
+                }
+                label{
+                    font-family: 'Times New Roman', Times, serif;
+                }
+                input{
+                    margin: 10px;
+                }
+            </style>
+</body>
+</html>

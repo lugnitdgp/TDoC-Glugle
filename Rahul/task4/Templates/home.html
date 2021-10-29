@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+    
+    {% block content %}
+    {% include 'header.html' %}
+    {% if logged_in == False %}
+    {% include 'login_and_signup.html' %}
+    {% endif %}
+
+    
+
+        <div class="col">
+
+
+            <div class="col mt-5">
+                <img src="{{url_for('static' , filename='./images/logo.png')}}" class="mx-auto d-block"
+                    style="width: 25%; height: 25%;">
+                <h1 style="color:rgb(91, 94, 92); text-align:center;font-family: 'Times New Roman', Times, serif;margin-top: 15px;padding: 15px;"
+                    class="mt-2"><b>Glugle Search</b></h2>
+            </div>
+
+
+            <form class="mt-5 container" name="search" style="width: 50%" action="/search_results">
+                <div class="col-6 mx-auto input-group">
+                    <input type="text" class="form-control" id="transcript" name="search" placeholder="search...">
+                    <img onclick="startDictation()" src="https://i.imgur.com/cHidSVu.gif" />
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+                
+                <script>
+
+                    function startDictation() {
+              
+                      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+              
+                        var recognition = new webkitSpeechRecognition();
+              
+                        recognition.continuous = false;
+                        recognition.interimResults = false;
+                        recognition.lang = "en-US";
+                        recognition.start();
+              
+                        recognition.onresult = function (e) {
+                          document.getElementById('transcript').value = e.results[0][0].transcript;
+                          recognition.stop();
+                          document.getElementById('').submit();
+                        };
+                        recognition.onerror = function(e) {
+                          recognition.stop();
+                        }
+                      }
+                    }
+              
+                  </script>
+            </form>
+        </div>
+        {% include 'footer.html' %}
+{% endblock %}
