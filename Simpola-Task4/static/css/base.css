@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat+Alternates:wght@200;300;400&family=Roboto:wght@300&display=swap');
+
+body {
+  background: linear-gradient(-45deg,
+      rgb(1, 10, 53),
+      #1a1a1a,
+      #252525,
+      rgb(25, 25, 26));
+  background-size: 400% 400%;
+  animation: gradient 13s ease infinite;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*no scroll-bar*/
+body {
+  overflow-y: scroll;
+  cursor: context-menu;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* no scroll bar ended*/
+
+.take_query_home {
+  margin-top: 40px;
+  border-radius: 20px;
+  outline: none;
+  padding-left: 5px;
+  border: 5px solid rgb(78, 94, 238);
+  border-top: none;
+  border-left: none;
+  background: none;
+  color: rgb(175, 175, 175);
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  border-right: none;
+  width: 600px;
+  height: 70px;
+}
+
+.search-btn-home {
+  background: linear-gradient(-45deg,
+      rgb(12, 24, 82),
+      #15739e,
+      #3b088d,
+      rgb(130, 47, 226));
+  background-size: 400% 400%;
+  animation: button-gradient 13s ease infinite;
+  font-weight: 700;
+  border-radius: 90px;
+  padding: 0.5em 1em;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  transition: 0.3s all ease-in-out;
+  color: rgb(82, 236, 198);
+}
+
+@keyframes button-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* RESULT PAGE */
+
+.meta-box {
+  background-color: #2a2f35;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.take_query_search {
+  width: 650px;
+  border-radius: 20px;
+  border: 5px solid rgb(78, 94, 238);
+  outline: none;
+  padding-left: 5px;
+  height: 60px;
+  border-top: none;
+  border-left: none;
+  background: none;
+  color: rgb(175, 175, 175);
+  font-weight: bold;
+  font-size: 22px;
+  border-right: none;
+  margin-top: 20px;
+}
+
+.search-btn-search {
+  background: linear-gradient(-45deg,
+      rgb(12, 24, 82),
+      #15739e,
+      #3b088d,
+      rgb(130, 47, 226));
+  background-size: 400% 400%;
+  animation: button-gradient 13s ease infinite;
+  font-weight: 700;
+  border-radius: 90px;
+  padding: 0.5em 1em;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  border: none;
+  outline: none;
+  margin-left: 20px;
+  transition: 0.3s all ease-in-out;
+  color: rgb(82, 236, 198);
+  margin-top: 20px;
+}
+
+.search-results-container {
+  margin-left: 50px;
+}
+
+.work_search {
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 530px) {
+
+  .take_query_search,
+  .take_query_home {
+    width: 400px;
+  }
+
+  .button_submit_search {
+    margin-left: 10px;
+  }
+
+  .search-results-container {
+    margin-left: 10px;
+  }
+
+  .work_search {
+    margin-left: 10px;
+  }
+
+}
+
+@media screen and (max-width: 430px) {
+
+  .take_query_search,
+  .take_query_home {
+    width: 370px;
+  }
+
+  .button_submit_search {
+    margin-left: 10px;
+  }
+
+  .search-results-container {
+    margin-left: 5px;
+  }
+
+  .work_search {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  .take_query_search,
+  .take_query_home {
+    width: 350px;
+  }
+
+  .button_submit_search {
+    margin-left: 10px;
+  }
+
+  .search-results-container {
+    margin-left: 5px;
+  }
+
+  .work_search {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+
+  .take_query_search,
+  .take_query_home {
+    width: 320px;
+  }
+
+  .button_submit_search {
+    margin-left: 10px;
+  }
+
+  .search-results-container {
+    margin-left: 2px;
+  }
+
+  .work_search {
+    margin-left: 10px;
+  }
+}
+
+.submit-button {
+  position: relative;
+}
