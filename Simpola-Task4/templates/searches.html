@@ -7,21 +7,25 @@
             <a href="/" style="font-weight: bold; font-size: 32px; margin-right: 10px; color: white; text-decoration: none;">Flearch</a>
             <input class="take_query_search" type="text" 
             placeholder="type what you want to seacrh for" name="search">
-            <input class="button_submit_search submit-button" type="submit" value="search">
+            <button type="submit" class="search-btn-search"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></button>
         </form>
 </div>
 <hr>
 
     <!-- <h1 style="font-size: 72px; font-weight: bold; margin-top: 150px"></h1> -->
     <div class="fluid-container search-results-container" style="margin-top: 70px;margin-right: 50px">
+        <h4>Search result for <b>{{search_string}}</b></h4>
+        <h6>Displaying <b>{{page}}</b> - <b>{{per_page}}</b> from <b>{{total}}</b> results</h6>
+        <br>
     {% for res in required %}
-    <h5>
-        <a href="{{res['url']}}"class="link" style="color:rgb(216, 216, 216); font-family: 'Comfortaa', cursive;font-weight: bold; font-size: 18px; text-decoration: none;"><i class="fas fa-globe-africa"></i>{{res['title']}}</a><br>
-    </h5>
     <div class="meta-box" style="max-width: 860px; min-width:360px; display: box;">
-    <a href="{{res['url']}}" style="color:rgb(149, 189, 141); font-size: 18px; text-decoration: underline; margin-right: 50px; word-wrap: break-word;">{{res['url']}}</a>
-     <p style="color:rgb(214,214,214); font-family: 'Roboto', cursive;">{{ res['description'][:200] }}</p>
+    <h5>
+    <a href="{{res['url']}}"class="link" style="color:rgb(216, 216, 216); font-family: 'Comfortaa', cursive;font-weight: bold; font-size: 18px; text-decoration: none;"><i class="fas fa-globe-africa"></i>{{res['title']}}</a><br>
+    </h5>
+    <a href="{{res['url']}}" style="color:rgb(82, 236, 198); font-size: 18px; text-decoration: underline; margin-right: 50px; word-wrap: break-word;">{{res['url']}}</a>
+     <p style="color:rgb(214,214,214); font-family: 'Montserrat Alternates', sans-serif;">{{ res['description'][:200] }}</p>
     </div>
+    <br>
     {% endfor %}
     <div>
         <br><br>
