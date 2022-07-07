@@ -13,7 +13,7 @@ def search_results():
   connect_url = "mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/test"
   client = pymongo.MongoClient(connect_url)
 
-  db = client.results
+  db = client.glugle
 
   search_string = request.args.get('search')
 
