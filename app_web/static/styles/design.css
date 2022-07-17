@@ -1,63 +1,66 @@
-body{
+body {
     font-family: Arial, sans-serif;
-    /* background-color: #0d0d0d !important; */
-    background-image:linear-gradient(45deg,rgb(27, 10, 102),rgb(37, 44, 131),rgb(7, 77, 168),rgb(59, 8, 117)) ;
+    background-color: #f2cf43;
+    background-image: linear-gradient(315deg, #f2cf43 0%, #19a186 74%);
     background-size: 400% 400%;
     animation: fant 12s ease infinite;
+}
 
-    
+@keyframes fant {
+    0% {
+        background-position: 0% 50%;
+    }
 
- }
- @keyframes fant{
-     0%{background-position: 0% 50%;}
-     50%{background-position: 100% 50%;}
-     100%{background-position: 0% 50%;}
- }
- section{
-     position: relative;
-     width: 100%;
-     display: flex;
-     justify-content: center;    
-     align-items: center;
-     min-height: 100vh;
- }
+    50% {
+        background-position: 100% 50%;
+    }
 
- .lab{
-    color: #fff;  
-    position: relative;   
+    100% {
+        background-position: 0% 50%;
+    }
+} 
+section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.lab {
+    color: #fff;
+    position: relative;
     /* color:cyan; */
 
-  
 
- }
- section.main{
-    
+
+}
+
+section.main {
+
     width: 580px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
- }
-.searchBox
- {
-     position: relative;
-     width:30%;
-     margin-top: 20px;
- }
- .search{
-     width: 100%;
-     padding: 13px;
-     padding-left: 45px;
-     padding-right: 60px;
-     border-radius: 30px;
-     border: 3px solid cyan ;
-     color:black;
-     outline: none;
+}
 
-     
- }
+.searchBox {
+    position: relative;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.search {
+    width: 100%;
+    padding: 13px;
+    padding-left: 45px;
+    padding-right: 60px;
+    border-radius: 30px;
+    border: 3px solid cyan;
+    color: black;
+    outline: none;
 
 
-
- 
-
+}
