@@ -50,8 +50,30 @@ input {
   appearance: none;
   outline: 0;
   border: 0;
+  border-bottom: solid 2px black;
   font-family: 'SF Mono Medium';
   font-size: 4rem;
   /* max-width: max-content; */
+}
 
+.btn-success {
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  width: 15rem;
+  height: 5rem;
+  /* margin-left: -.5rem; */
+  margin-right: 2rem;
+  outline: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: SFCompactMedium;
+  font-size: 1.8rem;
+  border-radius: .5rem;
+  transition: all .2s;
+}
+
+.btn-success:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }

@@ -24,7 +24,7 @@ def search_results():
     {'$text': {'$search': search_string, '$caseSensitive': False}}
   )
 
-  print("\n\nQuery: ", query[0])
+  # print("\n\nQuery: ", query[0])
 
   search_result = []
 
