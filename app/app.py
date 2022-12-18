@@ -8,6 +8,13 @@ stemmer = PorterStemmer()
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
+
+connect_url = "mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/"
+# connect_url = "mongodb://127.0.0.1:27017/"
+client = pymongo.MongoClient(connect_url)
+db = client.glugle
+print(db)
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -27,11 +34,8 @@ def stem_words(text):
 
 @app.route('/search_results/')
 def search_results():
-  connect_url = "mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/?retryWrites=true&w=majority"
-  # connect_url = "mongodb://127.0.0.1:27017/"
-  client = pymongo.MongoClient(connect_url)
-  db = client.glugle
   search_string = request.args.get('search')
+  print("\n", search_string, "\n")
   search_string = search_string.lower()
   search_string = search_string.translate(str.maketrans('','', string.punctuation))
   search_string = remove_stopwords(search_string)
