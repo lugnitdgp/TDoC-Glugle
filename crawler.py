@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 import sys
 
 class Crawler():
-  # client = pymongo.MongoClient("mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/test")
-  client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
+  client = pymongo.MongoClient("mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/?retryWrites=true&w=majority")
+  # client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
   db = client.glugle
   dissallowedLinks = []
   

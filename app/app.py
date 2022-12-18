@@ -27,8 +27,8 @@ def stem_words(text):
 
 @app.route('/search_results/')
 def search_results():
-  # connect_url = "mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/test"
-  connect_url = "mongodb://127.0.0.1:27017/"
+  connect_url = "mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/?retryWrites=true&w=majority"
+  # connect_url = "mongodb://127.0.0.1:27017/"
   client = pymongo.MongoClient(connect_url)
   db = client.glugle
   search_string = request.args.get('search')
