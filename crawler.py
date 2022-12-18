@@ -5,15 +5,14 @@ from bs4 import BeautifulSoup
 import sys
 
 class Crawler():
-  client = pymongo.MongoClient("mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/test")
+  # client = pymongo.MongoClient("mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/test")
+  client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
   db = client.glugle
-
   dissallowedLinks = []
-
+  
   def StartCrawl (self, url, depth):
     complete_url = urllib.parse.urljoin(url, "/robots.txt")
     print(complete_url)
-
     try:
       response = requests.get(complete_url)
       print("Response: ", response)
@@ -23,17 +22,13 @@ class Crawler():
 
     soup = BeautifulSoup(response.text, 'lxml')
     robots_content = soup.find('p').text
-
     links = robots_content.split()
-
     for link in links:
       if (link[0] == '/'):
         self.dissallowedLinks.append(urllib.parse.urljoin(url, link))
-
     print("Robots found and appended!")
     self.Crawl(url, depth, self.dissallowedLinks)
 
-  
   def Crawl(self, url, depth, *dissallowedLinks):
     try:
       print(f"Crawling url: {url} at depth {depth}")
@@ -41,17 +36,13 @@ class Crawler():
     except:
       print(f"Failed to perform GET req on {url}")
       return
-
     soup = BeautifulSoup(response.text, 'lxml')
-
     try:
       title = soup.find('title').text
       description = ''
-
       for tag in soup.findAll():
         if tag.name == 'p':
           description += tag.text.strip().replace('\n', '')
-
     except:
       print("Failed to retrieve title and desc.")
       return
@@ -61,9 +52,7 @@ class Crawler():
       'title': title,
       'description': description
     }
-
-    search_results = self.db.search_results
-
+    search_results = self.db.search
     search_results.insert_one(query)
     search_results.create_index(
       [
@@ -74,12 +63,9 @@ class Crawler():
       name = 'search_results',
       default_language = 'english'
     )
-
     if depth == 0:
       return
-
     links =  soup.findAll('a')
-
     for link in links:
       try:
         if link['href'] not in dissallowedLinks[0]:
@@ -96,9 +82,10 @@ class Crawler():
 
     self.client.close()
 
-
 crawler = Crawler()
 # crawler.StartCrawl("https://www.rottentomatoes.com", 2)
+crawler.StartCrawl("https://www.wikipedia.org/", 2)
+
 
 crawler.StartCrawl(
   sys.argv[1], int(sys.argv[2])
