@@ -6,10 +6,11 @@ from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
 stemmer = PorterStemmer()
 import nltk
+from decouple import config
 nltk.download('stopwords')
 nltk.download('punkt')
 
-connect_url = "mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/"
+connect_url = config('MONGO_URI')
 # connect_url = "mongodb://127.0.0.1:27017/"
 client = pymongo.MongoClient(connect_url)
 db = client.glugle
