@@ -3,9 +3,10 @@ import urllib.parse
 import requests
 from bs4 import BeautifulSoup
 import sys
+from decouple import config
 
 class Crawler():
-  client = pymongo.MongoClient("mongodb+srv://goofynugtz:1two3456@glugle.l17hyjv.mongodb.net/test")
+  client = pymongo.MongoClient(config('MONGO_URI'))
   # client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
   db = client.glugle
   dissallowedLinks = []
