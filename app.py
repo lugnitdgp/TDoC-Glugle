@@ -1,46 +1,34 @@
-from flask import Flask, render_template, request
-from flask_paginate import Pagination, get_page_args
+from flask import Flask, request
 import pymongo, string
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem.porter import PorterStemmer
+from utils import *
 import nltk
 from decouple import config
+from flask_cors import CORS
 
 nltk.download('stopwords')
 nltk.download('punkt')
 
-stemmer = PorterStemmer()
 connect_url = config('MONGO_URI')
-# connect_url = "mongodb://127.0.0.1:27017/"
 client = pymongo.MongoClient(connect_url)
 db = client.glugle
-# print(db)
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route('/')
-def home():
-  return render_template('home.html')
+# @app.route('/')
+# def home():
+#   return render_template('home.html')    
 
-def remove_stopwords(text):
-  stop_words = set(stopwords.words("english"))
-  word_tokens = word_tokenize(text)
-  filtered_text = [word for word in word_tokens if word not in stop_words]
-  return filtered_text
-
-def stem_words(text):
-  word_tokens = word_tokenize(text)
-  stems = [stemmer.stem(word) for word in word_tokens]
-  return stems
-
-@app.route('/search_results/')
+@app.route('/', methods=['POST'])
 def search_results():
-  search_string = request.args.get('search')
-  print("\n", search_string, "\n")
+  print(request)
+  print(request.json)
+  # search_string = request.args.get('search')
+  search_string = request.json['search']
   search_string = search_string.lower()
   search_string = search_string.translate(str.maketrans('','', string.punctuation))
   search_string = remove_stopwords(search_string)
+  print("\n", search_string, "\n")
 
   query = []
   for words in search_string:
@@ -73,25 +61,8 @@ def search_results():
         search_result.append(result)
 
   search_result = sorted(search_result, key=lambda x:x["score"])
-  # print("\n\nSearch: ", search_result)
-  page, per_page, offset = get_page_args(
-    page_parameter='page', 
-    per_page_parameter='per_page'
-  )
-  total = len(search_result)
-  pagination = Pagination(
-    page=page, 
-    per_page=per_page, 
-    total=total)
-
-  return render_template(
-    'search.html', 
-    search_result = search_result[offset:offset + per_page],
-    page=page,
-    per_page=per_page,
-    pagination=pagination,
-    search_string=search_string
-  )
+  response = JSONEncoder().encode(search_result)
+  return response
 
 if __name__ == '__main__':
-  app.run(debug=False)
+  app.run(debug=True)
