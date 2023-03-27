@@ -1,4 +1,3 @@
-
 import json
 from bson import ObjectId
 from nltk.corpus import stopwords

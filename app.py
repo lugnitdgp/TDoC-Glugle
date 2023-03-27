@@ -5,8 +5,8 @@ import nltk
 from decouple import config
 from flask_cors import CORS
 
-nltk.download('stopwords')
-nltk.download('punkt')
+# nltk.download('stopwords')
+# nltk.download('punkt')
 
 connect_url = config('MONGO_URI')
 client = pymongo.MongoClient(connect_url)
